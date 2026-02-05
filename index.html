@@ -67,6 +67,72 @@
 </head>
 <body class="bg-[#f6f7f8] text-[#0d141b]">
     <div id="root"></div>
-<script type="module" src="/index.tsx"></script>
-</body>
+<script type="module" src="/index.tsx"></script> <script>
+  window.addEventListener('load', function() {
+    // Buscamos el botón de cotizar por su clase de Tailwind
+    const btn = document.querySelector('button.bg-primary');
+    
+    if (btn) {
+      // Cambiamos el comportamiento del botón
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Obtenemos los valores de los campos
+        const provincia = document.querySelector('select')?.value;
+        const cp = document.querySelectorAll('input')[0]?.value;
+        const edad = document.querySelectorAll('input')[1]?.value;
+
+        // Enviamos los datos a Formspree
+        fetch("https://formspree.io/f/TU_CODIGO_AQUI", {
+          method: "POST",
+          body: JSON.stringify({
+            Provincia: provincia,
+            Codigo_Postal: cp,
+            Edad: edad
+          }),
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          }
+        }).then(response => {
+          if (response.ok) {
+            alert("¡Gracias! Pronto recibirás tu cotización.");
+          } else {
+            alert("Hubo un error. Intenta nuevamente.");
+          }
+        });
+      });
+    }
+  });
+</script>
+ <script>
+  window.addEventListener('load', function() {
+    const btn = document.querySelector('button');
+    if (btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const datos = {
+          provincia: document.querySelector('select')?.value,
+          cp: document.querySelectorAll('input')[0]?.value,
+          edad: document.querySelectorAll('input')[1]?.value
+        };
+
+        fetch("https://formspree.io/f/TU_ID_AQUÍ", {
+          method: "POST",
+          body: JSON.stringify(datos),
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+        }).then(response => {
+          if (response.ok) {
+            alert("¡Gracias! Pronto recibirás tu cotización.");
+          } else {
+            alert("Hubo un error, intenta de nuevo.");
+          }
+        });
+      });
+    }
+  });
+     https://formspree.io/f/xeeljvrr
+     
+</script>   
+</body>   
 </html>
