@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Tu Prepaga en un Click",
+  "description": "Una plataforma integral para comparar y contratar medicina prepaga en Argentina, incluyendo flujos de cotización, comparativas detalladas y un panel de administración para gestión de leads.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
