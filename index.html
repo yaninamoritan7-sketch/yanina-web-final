@@ -75,6 +75,7 @@
     if (btn) {
       btn.addEventListener('click', function(e) {
         e.preventDefault();
+        
         const datos = {
           Provincia: document.querySelector('select')?.value,
           Codigo_Postal: document.querySelectorAll('input')[0]?.value,
