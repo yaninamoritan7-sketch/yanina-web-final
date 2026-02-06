@@ -94,7 +94,10 @@
           } else {
             alert("Hubo un error. Intenta nuevamente.");
           }
-       });
+        }).catch(error => {
+          alert("Error de conexión. Intenta de nuevo.");
+        });
+      });
     }
   });
 </script>
