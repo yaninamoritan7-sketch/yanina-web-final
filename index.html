@@ -40,9 +40,8 @@
   <script type="module" src="/index.tsx"></script>
 
   <script>
-    // Sistema de detección del botón para enviar a Formspree
+    // Detector de clics para el botón de Formspree
     document.addEventListener('click', function(e) {
-      // Buscamos si el clic fue en el botón de cotizar
       const boton = e.target.closest('button');
       if (boton && (boton.innerText.includes('Cotizar') || boton.classList.contains('bg-primary'))) {
         
@@ -51,14 +50,13 @@
         const cp = inputs[0]?.value;
         const edad = inputs[1]?.value;
 
-        // Si los campos básicos tienen datos, enviamos
         if (provincia && cp && edad) {
           e.preventDefault();
           const datos = {
             Provincia: provincia,
             Codigo_Postal: cp,
             Edad: edad,
-            Fecha: new Date().toLocaleString()
+            Origen: "Formulario Web"
           };
 
           fetch("https://formspree.io/f/xeeljvrr", {
@@ -72,11 +70,9 @@
             if (response.ok) {
               alert("¡Gracias! Pronto recibirás tu cotización.");
             } else {
-              alert("Hubo un problema con el envío. Intenta nuevamente.");
+              alert("Hubo un error en el envío. Intentá nuevamente.");
             }
-          }).catch(err => {
-            console.error("Error de conexión:", err);
-          });
+          }).catch(err => alert("Error de conexión."));
         }
       }
     });
