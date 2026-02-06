@@ -83,8 +83,8 @@
         const edad = document.querySelectorAll('input')[1]?.value;
 
         // Enviamos los datos a Formspree
-        fetch("https://formspree.io/f/https://formspree.io/f/xeeljvrr , {
-          method: "POST",
+        fetch("https://formspree.io/f/xeeljvrr , {
+        
           body: JSON.stringify({
             Provincia: provincia,
             Codigo_Postal: cp,
@@ -105,7 +105,8 @@
     }
   });
 </script>
- <script>
+<script>    
+
   window.addEventListener('load', function() {
     const btn = document.querySelector('button');
     if (btn) {
@@ -117,7 +118,7 @@
           edad: document.querySelectorAll('input')[1]?.value
         };
 
-        fetch("https://formspree.io/f/https://formspree.io/f/xeeljvrrhttps://formspree.io/f/xeeljvr, {
+        fetch("https://formspree.io/f/TU_ID_AQUÍ", {
           method: "POST",
           body: JSON.stringify(datos),
           headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
@@ -131,8 +132,4 @@
       });
     }
   });
-     
-     
-</script>   
-</body>   
-</html>
+</script>
