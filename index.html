@@ -23,10 +23,10 @@
                     fontFamily: {
                         "display": ["Manrope", "sans-serif"],
                         "body": ["Noto Sans", "sans-serif"]
-               boxShadow: {
+          boxShadow: {
         'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
       }
-    },
+    }
   };
 </script>
 
@@ -67,6 +67,7 @@
       if (btn) {
         btn.addEventListener('click', function(e) {
           e.preventDefault();
+          
           const datos = {
             Provincia: document.querySelector('select')?.value,
             Codigo_Postal: document.querySelectorAll('input')[0]?.value,
@@ -84,7 +85,7 @@
             if (response.ok) {
               alert("¡Gracias! Pronto recibirás tu cotización.");
             } else {
-              alert("Error al enviar. Revisa los datos.");
+              alert("Error al enviar. Intenta de nuevo.");
             }
           }).catch(error => {
             alert("Error de conexión.");
